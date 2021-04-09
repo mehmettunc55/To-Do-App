@@ -1,31 +1,36 @@
 
+let inputBox = document.querySelector('#myInput');
+let addButton = document.querySelector('.addBtn');
+let toDoUl = document.querySelector('#myUL')
 
 
+function newElement()
+{
+  if (inputBox.value == ''){
+    inputBox.placeholder = 'Please enter to-do-list'
+    }
 
+  else{
+  let toDoLi = document.createElement('li');
+  let writtenText = document.createTextNode(inputBox.value);
+  toDoLi.append(writtenText);
+  toDoUl.append(toDoLi);
+  inputBox.value = "";
+  
 
-// Create a new list item when clicking on the "Add" button
-function newElement() {
-  let li = document.createElement("li");
-  let inputValue = document.getElementById("myInput").value;
-  let listedRow = document.createTextNode(inputValue);
-  li.appendChild(listedRow);
-  document.getElementById("myUL").appendChild(li);
-  document.getElementById("myInput").value = ""; // yazilan input kutusunu bos yapiyor tekrar
-
-  let span = document.createElement("SPAN");
-  let txt = document.createTextNode("\u00D7");
-  span.className = "close";
-  span.appendChild(txt);
-  li.appendChild(span);
+  let newSpan = document.createElement("span");
+  let closeButton = document.createTextNode("\u2620");
+  newSpan.className = "close";
+  newSpan.append(closeButton);
+  toDoLi.append(newSpan);
 
   let close = document.getElementsByClassName("close");
-  let i;
-  for (i = 0; i < close.length; i++) {
+  for (let i = 0; i < close.length; i++) {
   close[i].onclick = function() {
-  let div = this.parentElement;
-  div.style.display = "none";
-  }
-}
-}
+  let del = this.parentElement;
+  del.style.display = "none";
 
-// Click on a close button to hide the current list item
+  }}
+
+}
+}
